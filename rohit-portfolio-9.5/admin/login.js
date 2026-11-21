@@ -1,51 +1,62 @@
-const API_BASE_URL = "http://localhost:5000/api";
+
+/* =========================================
+   ROHIT JHA — ADMIN LOGIN
+========================================= */
 
 const loginForm = document.getElementById("loginForm");
 const loginBtn = document.getElementById("loginBtn");
 const buttonText = document.getElementById("buttonText");
 const errorMessage = document.getElementById("errorMessage");
 
-loginForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
+if (loginForm) {
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+    loginForm.addEventListener("submit", async (event) => {
 
-    errorMessage.textContent = "";
-    loginBtn.disabled = true;
-    buttonText.textContent = "Signing in...";
+        event.preventDefault();
 
-    try {
-        const response = await fetch(`${API_BASE_URL}/auth/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ email, password })
-        });
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
 
-        const data = await response.json();
+        errorMessage.textContent = "";
+        loginBtn.disabled = true;
+        buttonText.textContent = "Signing in...";
 
-        if (!response.ok) {
-            throw new Error(data.message || "Invalid email or password.");
+        try {
+
+            // Use centralized API configuration
+            if (!window.API) {
+                throw new Error("API configuration is not loaded.");
+            }
+
+            const data = await window.API.post("auth/login", {
+                email,
+                password
+            });
+
+            if (!data.token) {
+                throw new Error(
+                    "Authentication token was not received."
+                );
+            }
+
+            sessionStorage.setItem("adminToken", data.token);
+
+            window.location.href = "dashboard.html";
+
+        } catch (error) {
+
+            console.error("Admin Login Error:", error);
+
+            errorMessage.textContent =
+                error.message === "Failed to fetch"
+                    ? "Unable to connect to the server. Please try again."
+                    : error.message;
+
+        } finally {
+
+            loginBtn.disabled = false;
+            buttonText.textContent = "Sign In to Dashboard";
+
         }
-
-        if (!data.token) {
-            throw new Error("Authentication token was not received.");
-        }
-
-        sessionStorage.setItem("adminToken", data.token);
-
-        window.location.href = "dashboard.html";
-
-    } catch (error) {
-        errorMessage.textContent =
-            error.message === "Failed to fetch"
-                ? "Cannot connect to server. Please start the backend."
-                : error.message;
-
-    } finally {
-        loginBtn.disabled = false;
-        buttonText.textContent = "Sign In to Dashboard";
-    }
-});
+    });
+}
