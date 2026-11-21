@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Achievements Management | Rohit Jha</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="achievements.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <a href="dashboard.html" class="brand">
+                <div class="brand-mark">RJ</div>
+                <span>ROHIT<span class="accent">.</span></span>
+            </a>
+
+            <div class="sidebar-label">MAIN MENU</div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-link">
+                    <span>▦</span> Overview
+                </a>
+
+                <a href="dashboard.html#profile" class="nav-link">
+                    <span>◉</span> Profile
+                </a>
+
+                <a href="projects.html" class="nav-link">
+                    <span>▣</span> Projects
+                </a>
+
+                <a href="certificates.html" class="nav-link">
+                    <span>▤</span> Certificates
+                </a>
+
+                <a href="achievements.html" class="nav-link active">
+                    <span>✦</span> Achievements
+                </a>
+
+                <a href="skills.html" class="nav-link">
+                    <span>⌘</span> Skills
+                </a>
+
+                <a href="messages.html" class="nav-link">
+                    <span>✉</span> Messages
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="../index.html" target="_blank" class="nav-link">
+                    <span>↗</span> View Portfolio
+                </a>
+
+                <button id="logoutBtn" class="nav-link logout-btn" type="button">
+                    <span>⇥</span> Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">CONTENT MANAGEMENT</p>
+                    <h1>Achievements<span class="accent">.</span></h1>
+                </div>
+
+                <div class="admin-profile">
+                    <div class="admin-avatar">RJ</div>
+
+                    <div>
+                        <h3>Rohit Jha</h3>
+                        <p>Administrator</p>
+                    </div>
+                </div>
+
+            </header>
+
+
+            <!-- PAGE INTRO -->
+            <section class="page-intro">
+
+                <div>
+                    <h2>Manage Achievements</h2>
+
+                    <p>
+                        Add and manage your accomplishments, extracurricular
+                        activities and recognitions.
+                    </p>
+                </div>
+
+                <a href="dashboard.html" class="back-button">
+                    ← Back to Dashboard
+                </a>
+
+            </section>
+
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <p>Total Achievements</p>
+                    <h2 id="achievementCount">0</h2>
+                    <span>Your accomplishments</span>
+                </div>
+
+            </section>
+
+
+            <!-- ADD ACHIEVEMENT FORM -->
+            <section class="form-card">
+
+                <div class="form-heading">
+
+                    <div>
+                        <p class="eyebrow">ACHIEVEMENT DETAILS</p>
+                        <h2 id="formTitle">Add New Achievement</h2>
+                    </div>
+
+                </div>
+
+
+                <form id="achievementForm">
+
+                    <input type="hidden" id="achievementId">
+
+
+                    <div class="form-grid">
+
+                        <!-- TITLE -->
+                        <div class="form-group">
+
+                            <label for="title">
+                                Achievement Title *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="title"
+                                name="title"
+                                placeholder="e.g. AIU East Zone Kabaddi Participation"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- ORGANIZATION -->
+                        <div class="form-group">
+
+                            <label for="organization">
+                                Organization / Institution *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="organization"
+                                name="organization"
+                                placeholder="e.g. Association of Indian Universities"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- DATE -->
+                        <div class="form-group">
+
+                            <label for="date">
+                                Achievement Date *
+                            </label>
+
+                            <input
+                                type="date"
+                                id="date"
+                                name="date"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- CREDENTIAL URL -->
+                        <div class="form-group">
+
+                            <label for="credentialUrl">
+                                Credential / Reference URL
+                            </label>
+
+                            <input
+                                type="url"
+                                id="credentialUrl"
+                                name="credentialUrl"
+                                placeholder="https://example.com"
+                            >
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+                        <div class="form-group full-width">
+
+                            <label for="description">
+                                Description
+                            </label>
+
+                            <textarea
+                                id="description"
+                                name="description"
+                                rows="5"
+                                placeholder="Describe your achievement..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FORM MESSAGE -->
+                    <p id="formMessage" class="form-message"></p>
+
+
+                    <!-- FORM ACTIONS -->
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            id="cancelBtn"
+                            class="secondary-button"
+                            hidden
+                        >
+                            Cancel Edit
+                        </button>
+
+                        <button
+                            type="submit"
+                            id="saveBtn"
+                            class="primary-button"
+                        >
+                            Add Achievement
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- ACHIEVEMENTS LIST -->
+            <section class="list-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="eyebrow">YOUR COLLECTION</p>
+                        <h2>All Achievements</h2>
+                    </div>
+
+                </div>
+
+
+                <div id="messageBox" class="message-box"></div>
+
+
+                <div id="achievementsList" class="achievements-list">
+
+                    <div class="loading-state">
+                        Loading achievements...
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="achievements.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | Rohit Jha</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Login CSS -->
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <div class="login-box">
+
+            <!-- Brand -->
+            <div class="brand">
+                <div class="brand-mark">RJ</div>
+                <span>ROHIT<span class="accent">.</span></span>
+            </div>
+
+            <!-- Heading -->
+            <div class="login-heading">
+                <span class="eyebrow">ADMINISTRATION</span>
+
+                <h1>Welcome Back<span class="accent">.</span></h1>
+
+                <p>
+                    Sign in to manage your portfolio dashboard.
+                </p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your admin email"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="loginBtn">
+                    <span id="buttonText">Sign In to Dashboard</span>
+                </button>
+
+                <p id="errorMessage" role="alert"></p>
+
+            </form>
+
+            <!-- Footer -->
+            <div class="login-footer">
+                <span class="footer-dot"></span>
+                Secure Admin Access
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Rohit Jha. All rights reserved.
+        </p>
+
+    </main>
+
+    <!-- Login JavaScript -->
+    <script src="login.js"></script>
+
+</body>
+</html>

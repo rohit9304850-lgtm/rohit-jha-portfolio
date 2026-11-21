@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Management | Rohit Jha</title>
+    <link rel="stylesheet" href="skills.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2>ROHIT<span>.</span></h2>
+                <p>ADMIN PANEL</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">Overview</a>
+                <a href="dashboard.html#profile">Profile</a>
+                <a href="projects.html">Projects</a>
+                <a href="certificates.html">Certificates</a>
+                <a href="achievements.html">Achievements</a>
+                <a href="skills.html" class="active">Skills</a>
+                <a href="messages.html">Messages</a>
+            </nav>
+
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">PORTFOLIO MANAGEMENT</p>
+                    <h1>Skills Management</h1>
+                    <p class="page-subtitle">
+                        Manage your technical skills and proficiency levels.
+                    </p>
+                </div>
+
+                <div class="admin-badge">
+                    <span class="status-dot"></span>
+                    Admin
+                </div>
+            </header>
+
+            <!-- Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <p>Total Skills</p>
+                    <h2 id="skillCount">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Categories</p>
+                    <h2 id="categoryCount">0</h2>
+                </div>
+            </section>
+
+            <!-- Add/Edit Skill Form -->
+            <section class="content-card">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">SKILL DETAILS</p>
+                        <h2 id="formTitle">Add New Skill</h2>
+                    </div>
+                </div>
+
+                <form id="skillForm">
+
+                    <input type="hidden" id="skillId">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="skillName">Skill Name *</label>
+                            <input
+                                type="text"
+                                id="skillName"
+                                placeholder="e.g. JavaScript"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <select id="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Programming">Programming</option>
+                                <option value="Frontend">Frontend</option>
+                                <option value="Backend">Backend</option>
+                                <option value="Database">Database</option>
+                                <option value="AIML">AI / Machine Learning</option>
+                                <option value="Tools">Tools & Technologies</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="proficiency">
+                                Proficiency: <span id="proficiencyValue">80%</span>
+                            </label>
+
+                            <input
+                                type="range"
+                                id="proficiency"
+                                min="0"
+                                max="100"
+                                value="80"
+                            >
+
+                            <div class="range-labels">
+                                <span>Beginner</span>
+                                <span>Intermediate</span>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="saveBtn" class="primary-btn">
+                            Save Skill
+                        </button>
+
+                        <button type="button" id="cancelBtn" class="secondary-btn">
+                            Cancel
+                        </button>
+                    </div>
+
+                    <p id="formMessage" class="message"></p>
+
+                </form>
+            </section>
+
+            <!-- Skills List -->
+            <section class="content-card skills-section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR EXPERTISE</p>
+                        <h2>All Skills</h2>
+                    </div>
+
+                    <span class="section-count" id="listCount">0 Skills</span>
+                </div>
+
+                <div id="skillsList" class="skills-list">
+                    <div class="empty-state">
+                        Loading skills...
+                    </div>
+                </div>
+
+                <p id="messageBox" class="message"></p>
+
+            </section>
+
+        </main>
+    </div>
+
+    <script src="skills.js"></script>
+</body>
+</html>

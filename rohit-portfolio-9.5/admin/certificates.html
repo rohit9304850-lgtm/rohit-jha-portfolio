@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificates | Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="certificates.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="topbar">
+            <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </header>
+
+        <section class="page-heading">
+            <span class="eyebrow">CONTENT MANAGEMENT</span>
+            <h1>Certificates<span>.</span></h1>
+            <p>Manage your certifications and achievements.</p>
+        </section>
+
+        <section class="content-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Your Certificates</h2>
+                    <p id="certificateCount">Loading certificates...</p>
+                </div>
+
+                <button id="addCertificateBtn" class="primary-btn">
+                    + Add Certificate
+                </button>
+            </div>
+
+            <div id="messageBox" class="message-box"></div>
+
+            <div id="certificatesList" class="certificates-grid">
+                <p class="loading-text">Loading certificates...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Certificate Form Modal -->
+    <div id="certificateModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div>
+                    <span class="eyebrow">CERTIFICATE DETAILS</span>
+                    <h2 id="formTitle">Add New Certificate</h2>
+                </div>
+
+                <button id="closeModalBtn" class="close-btn">×</button>
+            </div>
+
+            <form id="certificateForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="title">Certificate Title *</label>
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="e.g. Full Stack Web Development"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issuer">Issuing Organization *</label>
+                        <input
+                            type="text"
+                            id="issuer"
+                            placeholder="e.g. Coursera"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueDate">Issue Date *</label>
+                        <input
+                            type="text"
+                            id="issueDate"
+                            placeholder="e.g. November 2026"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="credentialUrl">Credential URL</label>
+                        <input
+                            type="url"
+                            id="credentialUrl"
+                            placeholder="https://..."
+                        >
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="description">Description</label>
+                        <textarea
+                            id="description"
+                            rows="4"
+                            placeholder="Write a short description..."
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="certificateImage">Certificate Image *</label>
+
+                        <input
+                            type="file"
+                            id="certificateImage"
+                            accept="image/*"
+                        >
+
+                        <small>Upload JPG, PNG or WEBP. Maximum size: 5 MB.</small>
+
+                        <div class="image-preview-wrapper">
+                            <img id="imagePreview" class="image-preview hidden" alt="Certificate preview">
+                            <p id="imageStatus">No image selected.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn" class="secondary-btn">
+                        Cancel
+                    </button>
+
+                    <button type="submit" id="saveBtn" class="primary-btn">
+                        Save Certificate
+                    </button>
+                </div>
+
+                <p id="formMessage" class="form-message"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="certificates.js"></script>
+
+</body>
+</html>

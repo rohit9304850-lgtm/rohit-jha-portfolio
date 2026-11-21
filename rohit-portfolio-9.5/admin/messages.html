@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Messages Management | Rohit Jha</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="messages.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <a href="dashboard.html" class="brand">
+                <div class="brand-mark">RJ</div>
+                <span>ROHIT<span class="accent">.</span></span>
+            </a>
+
+            <div class="sidebar-label">MAIN MENU</div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-link">
+                    <span>▦</span> Overview
+                </a>
+
+                <a href="dashboard.html#profile" class="nav-link">
+                    <span>◉</span> Profile
+                </a>
+
+                <a href="projects.html" class="nav-link">
+                    <span>▣</span> Projects
+                </a>
+
+                <a href="certificates.html" class="nav-link">
+                    <span>▤</span> Certificates
+                </a>
+
+                <a href="achievements.html" class="nav-link">
+                    <span>✦</span> Achievements
+                </a>
+
+                <a href="skills.html" class="nav-link">
+                    <span>⌘</span> Skills
+                </a>
+
+                <a href="messages.html" class="nav-link active">
+                    <span>✉</span> Messages
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="../index.html" target="_blank" class="nav-link">
+                    <span>↗</span> View Portfolio
+                </a>
+
+                <button
+                    id="logoutBtn"
+                    class="nav-link logout-btn"
+                    type="button"
+                >
+                    <span>⇥</span> Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">CONTENT MANAGEMENT</p>
+                    <h1>Messages<span class="accent">.</span></h1>
+                </div>
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">RJ</div>
+
+                    <div>
+                        <h3>Rohit Jha</h3>
+                        <p>Administrator</p>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- PAGE INTRO -->
+            <section class="page-intro">
+
+                <div>
+                    <h2>Your Inbox</h2>
+
+                    <p>
+                        View messages sent by visitors through your public portfolio.
+                        Read, manage and respond to enquiries.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    id="refreshMessagesBtn"
+                    class="back-button refresh-button"
+                >
+                    ↻ Refresh Messages
+                </button>
+
+            </section>
+
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <p>Total Messages</p>
+                    <h2 id="totalMessageCount">0</h2>
+                    <span>All received messages</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Unread Messages</p>
+                    <h2 id="unreadMessageCount">0</h2>
+                    <span>Awaiting your attention</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Read Messages</p>
+                    <h2 id="readMessageCount">0</h2>
+                    <span>Already reviewed</span>
+                </div>
+
+            </section>
+
+
+            <!-- MESSAGES LIST -->
+            <section class="list-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="eyebrow">YOUR INBOX</p>
+                        <h2>Received Messages</h2>
+                    </div>
+
+                    <div class="message-filter">
+
+                        <label for="messageFilter">Filter:</label>
+
+                        <select id="messageFilter">
+                            <option value="all">All Messages</option>
+                            <option value="new">Unread</option>
+                            <option value="read">Read</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STATUS MESSAGE -->
+                <div
+                    id="messageBox"
+                    class="message-box"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+
+                <!-- MESSAGES -->
+                <div id="messagesList" class="messages-list">
+
+                    <div class="loading-state">
+                        Loading messages...
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="messages.js"></script>
+
+</body>
+
+</html>

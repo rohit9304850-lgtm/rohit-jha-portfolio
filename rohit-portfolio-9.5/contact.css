@@ -1,0 +1,175 @@
+
+/* =========================================
+   ROHIT JHA — PUBLIC CONTACT FORM
+========================================= */
+
+.contact-panel.contact-form-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: 28px;
+    padding: 28px;
+}
+
+.contact-form-intro h3 {
+    font: 600 1.15rem "Space Grotesk", sans-serif;
+}
+
+.contact-form-intro p {
+    color: var(--muted);
+    font-size: .82rem;
+    margin-top: 9px;
+    line-height: 1.7;
+}
+
+.contact-form-details {
+    display: grid;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    font-size: .76rem;
+}
+
+.contact-detail i {
+    width: 20px;
+    color: var(--accent);
+    text-align: center;
+}
+
+/* Form layout */
+
+.contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.contact-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.contact-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.contact-form-group label {
+    color: var(--text);
+    font-size: .76rem;
+    font-weight: 600;
+}
+
+.contact-form-group input,
+.contact-form-group textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1px solid var(--border-strong);
+    border-radius: 9px;
+    outline: none;
+    background: var(--surface-2);
+    color: var(--text);
+    font: 400 .8rem "DM Sans", sans-serif;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.contact-form-group input::placeholder,
+.contact-form-group textarea::placeholder {
+    color: var(--subtle);
+}
+
+.contact-form-group input:focus,
+.contact-form-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(245, 196, 81, .08);
+}
+
+.contact-form-group textarea {
+    min-height: 135px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* Submit button */
+
+.contact-submit-btn {
+    justify-self: start;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+}
+
+.contact-submit-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Form response message */
+
+.contact-form-status {
+    display: none;
+    grid-column: 1 / -1;
+    padding: 11px 13px;
+    border-radius: 9px;
+    font-size: .76rem;
+    line-height: 1.5;
+}
+
+.contact-form-status.success {
+    display: block;
+    color: var(--green);
+    background: rgba(139, 214, 173, .08);
+    border: 1px solid rgba(139, 214, 173, .2);
+}
+
+.contact-form-status.error {
+    display: block;
+    color: #ff8888;
+    background: rgba(255, 98, 98, .08);
+    border: 1px solid rgba(255, 98, 98, .2);
+}
+
+/* Hidden spam-trap field */
+
+.contact-honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+/* Responsive contact form */
+
+@media (max-width: 900px) {
+    .contact-panel.contact-form-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .contact-panel.contact-form-layout {
+        padding: 19px;
+        gap: 22px;
+    }
+
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-group.full-width {
+        grid-column: auto;
+    }
+
+    .contact-submit-btn {
+        width: 100%;
+    }
+}

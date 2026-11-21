@@ -1,0 +1,137 @@
+
+/* =========================================
+   ROHIT JHA — DYNAMIC PUBLIC CERTIFICATES
+========================================= */
+
+.public-certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.public-certificate-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: var(--surface-2);
+    transition: transform .2s, border-color .2s;
+}
+
+.public-certificate-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(245, 196, 81, .3);
+}
+
+/* Certificate Image */
+
+.public-certificate-image-wrap {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #0c0f16;
+    border-bottom: 1px solid var(--border);
+}
+
+.public-certificate-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    object-fit: contain;
+}
+
+.public-certificate-image-fallback {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    font-size: 2rem;
+    background: var(--surface-3);
+}
+
+/* Certificate Information */
+
+.public-certificate-info {
+    padding: 18px;
+}
+
+.public-certificate-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.public-certificate-issuer {
+    color: var(--accent);
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.public-certificate-date {
+    color: var(--subtle);
+    font-size: .68rem;
+}
+
+.public-certificate-info h3 {
+    font: 600 1.05rem "Space Grotesk", sans-serif;
+    overflow-wrap: anywhere;
+}
+
+.public-certificate-description {
+    color: var(--muted);
+    font-size: .78rem;
+    margin-top: 8px;
+    overflow-wrap: anywhere;
+}
+
+/* Credential Link */
+
+.public-certificate-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 16px;
+    padding-top: 13px;
+    border-top: 1px solid var(--border);
+}
+
+.public-certificate-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 7px 11px;
+    border: 1px solid rgba(245, 196, 81, .3);
+    border-radius: 8px;
+    color: #e1e5ee;
+    font-size: .7rem;
+    font-weight: 600;
+    transition: background .2s, color .2s;
+}
+
+.public-certificate-link:hover {
+    background: var(--accent-wash);
+    color: var(--accent-2);
+}
+
+/* Responsive Certificates */
+
+@media (max-width: 680px) {
+    .public-certificate-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .public-certificate-image-wrap {
+        height: 220px;
+    }
+}
