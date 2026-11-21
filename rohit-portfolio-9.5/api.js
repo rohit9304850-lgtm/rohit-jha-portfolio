@@ -7,13 +7,18 @@
 // API BASE URL
 // =========================================
 
-// Local development URL.
-// For deployment, configure:
-// window.PORTFOLIO_API_BASE_URL before loading this file.
+const isLocalDevelopment = [
+    "localhost",
+    "127.0.0.1"
+].includes(window.location.hostname);
+
+const DEFAULT_API_BASE_URL = isLocalDevelopment
+    ? "http://localhost:5000/api"
+    : "https://rohit-jha-portfolio.onrender.com/api";
 
 const API_BASE_URL = (
     window.PORTFOLIO_API_BASE_URL ||
-    "http://localhost:5000/api"
+    DEFAULT_API_BASE_URL
 ).replace(/\/+$/, "");
 
 
@@ -51,12 +56,12 @@ const API = {
             );
         }
 
-        // Set JSON content type for request bodies.
-        // FormData must set its own multipart boundary.
+        // FormData must set its own multipart boundary
         const isFormData =
             typeof FormData !== "undefined" &&
             options.body instanceof FormData;
 
+        // Set JSON content type for normal JSON requests
         if (
             options.body !== undefined &&
             options.body !== null &&
@@ -82,9 +87,7 @@ const API = {
                 headers
             });
 
-            // --------------------------------
             // HANDLE API RESPONSE
-            // --------------------------------
 
             let data = {};
 
@@ -113,9 +116,7 @@ const API = {
                 }
             }
 
-            // --------------------------------
             // HANDLE HTTP ERRORS
-            // --------------------------------
 
             if (!response.ok) {
 
@@ -139,48 +140,56 @@ const API = {
     },
 
 
-    // ====================================
+    // =====================================
     // GET REQUEST
-    // ====================================
+    // =====================================
 
     get(endpoint) {
         return this.request(endpoint);
     },
 
 
-    // ====================================
+    // =====================================
     // POST REQUEST
-    // ====================================
+    // =====================================
 
     post(endpoint, body) {
+
+        const isFormData =
+            typeof FormData !== "undefined" &&
+            body instanceof FormData;
+
         return this.request(endpoint, {
             method: "POST",
-
-            body: body instanceof FormData
+            body: isFormData
                 ? body
                 : JSON.stringify(body)
         });
     },
 
 
-    // ====================================
+    // =====================================
     // PUT REQUEST
-    // ====================================
+    // =====================================
 
     put(endpoint, body) {
+
+        const isFormData =
+            typeof FormData !== "undefined" &&
+            body instanceof FormData;
+
         return this.request(endpoint, {
             method: "PUT",
-
-            body: body instanceof FormData
+            body: isFormData
                 ? body
                 : JSON.stringify(body)
         });
     },
 
 
-    // ====================================
+    // =====================================
     // DELETE REQUEST
-    // ====================================
+    // =====================================
 
     delete(endpoint) {
         return this.request(endpoint, {
