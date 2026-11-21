@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 
@@ -6,7 +7,7 @@ const protect = require("../middleware/authMiddleware");
 const {
     getProfile,
     saveProfile
-} = require("../controllers/profileController");
+} = require("../controllers/ProfileController");
 
 // Public profile reading
 router.get("/", getProfile);
