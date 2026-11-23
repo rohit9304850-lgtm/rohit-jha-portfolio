@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://localhost:5000/api";
+const isLocalDevelopment = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+const API_BASE_URL = (window.PORTFOLIO_API_BASE_URL || (isLocalDevelopment ? "http://localhost:5000/api" : "https://rohit-jha-portfolio.onrender.com/api")).replace(/\/+$/, "");
 
 const token = sessionStorage.getItem("adminToken");
 
