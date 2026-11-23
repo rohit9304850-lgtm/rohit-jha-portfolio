@@ -1,6 +1,6 @@
-
+﻿
 /* ==============================
-   ROHIT JHA — PORTFOLIO UI
+   ROHIT JHA  PORTFOLIO UI
    Dark, clean, responsive styling
 ================================ */
 :root {
@@ -1066,4 +1066,566 @@ body.modal-open { overflow:hidden; }
 @media (max-width:680px) {
   .public-project-grid { grid-template-columns:1fr; }
   .public-project-image-wrap { height:200px; }
+}
+
+
+/* ==========================================
+   ROHIT JHA — FINAL PORTFOLIO UI ENHANCEMENT
+   Original dark and gold theme preserved
+========================================== */
+
+
+/* ==========================================
+   1. INDIVIDUAL PORTFOLIO SECTIONS
+========================================== */
+
+.content-section {
+    position: relative;
+    margin-top: 25px;
+    padding: 27px;
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(245, 196, 81, .035),
+            rgba(255, 255, 255, .012)
+        );
+    scroll-margin-top: 100px;
+}
+
+.section-heading {
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.section-heading h2 {
+    font-size: 1.85rem;
+    letter-spacing: -.9px;
+}
+
+.section-index {
+    display: grid;
+    place-items: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 9px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-2);
+    color: var(--accent);
+}
+
+
+/* ==========================================
+   2. ABOUT SECTION
+========================================== */
+
+#about .about-panel {
+    border-radius: 16px;
+    padding: 25px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(245, 196, 81, .055),
+            rgba(255, 255, 255, .012)
+        );
+    transition: border-color .25s, transform .25s;
+}
+
+#about .about-panel:hover {
+    border-color: rgba(245, 196, 81, .25);
+}
+
+#about .about-panel p {
+    font-size: .88rem;
+    line-height: 1.85;
+}
+
+
+/* ==========================================
+   3. SKILLS CARDS
+========================================== */
+
+#skills .skills-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+#skills .skill-group {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    padding: 21px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            145deg,
+            var(--surface-2),
+            rgba(23, 27, 37, .65)
+        );
+    transition: transform .25s, border-color .25s;
+}
+
+#skills .skill-group:hover {
+    transform: translateY(-4px);
+    border-color: rgba(245, 196, 81, .32);
+}
+
+#skills .skill-group-head {
+    gap: 11px;
+    margin-bottom: 17px;
+}
+
+#skills .skill-group-head > i {
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: var(--accent-wash);
+    color: var(--accent);
+}
+
+#skills .skill-group h3 {
+    font-size: .95rem;
+}
+
+#skills .skill-pills {
+    gap: 9px;
+}
+
+#skills .skill-pills span {
+    padding: 8px 11px;
+    font-size: .74rem;
+    transition: background .2s, border-color .2s;
+}
+
+#skills .skill-pills span:hover {
+    background: rgba(245, 196, 81, .09);
+    border-color: rgba(245, 196, 81, .24);
+}
+
+
+/* ==========================================
+   4. EDUCATION TIMELINE
+========================================== */
+
+#education .timeline {
+    gap: 19px;
+}
+
+#education .education-card {
+    padding: 23px;
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--surface-2),
+            rgba(23, 27, 37, .65)
+        );
+    transition: transform .25s, border-color .25s;
+}
+
+#education .education-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(245, 196, 81, .3);
+}
+
+#education .education-card h3 {
+    font-size: 1.1rem;
+}
+
+
+/* ==========================================
+   5. PROJECTS HORIZONTAL CAROUSEL
+========================================== */
+
+#projects .public-project-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 17px;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 5px 4px 17px;
+    margin: 0;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 4px;
+    scroll-behavior: smooth;
+
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--surface-3);
+
+    cursor: grab;
+}
+
+#projects .public-project-grid:active {
+    cursor: grabbing;
+}
+
+#projects .public-project-grid > .public-project-card {
+    flex: 0 0 calc((100% - 17px) / 2);
+    min-width: 0;
+    max-width: none;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#projects .public-project-card:only-child {
+    flex-basis: 100%;
+}
+
+#projects .public-project-card {
+    border-radius: 17px;
+    background: var(--surface-2);
+    transition: border-color .25s, transform .25s;
+}
+
+#projects .public-project-card:hover {
+    border-color: rgba(245, 196, 81, .4);
+}
+
+#projects .public-project-image-wrap {
+    height: 205px;
+}
+
+#projects .public-project-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+}
+
+#projects .public-project-info h3 {
+    font-size: 1.12rem;
+}
+
+#projects .public-project-description {
+    line-height: 1.7;
+}
+
+#projects .public-project-actions {
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+#projects .public-project-grid::-webkit-scrollbar {
+    height: 7px;
+}
+
+#projects .public-project-grid::-webkit-scrollbar-track {
+    background: var(--surface-3);
+    border-radius: 10px;
+}
+
+#projects .public-project-grid::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+
+/* ==========================================
+   6. CERTIFICATES HORIZONTAL CAROUSEL
+========================================== */
+
+#certificates .public-certificate-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 17px;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 5px 4px 17px;
+    margin: 0;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 4px;
+    scroll-behavior: smooth;
+
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--surface-3);
+
+    cursor: grab;
+}
+
+#certificates .public-certificate-grid:active {
+    cursor: grabbing;
+}
+
+#certificates .public-certificate-grid > .public-certificate-card {
+    flex: 0 0 calc((100% - 17px) / 2);
+
+    min-width: 0;
+    max-width: none;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#certificates .public-certificate-card:only-child {
+    flex-basis: 100%;
+}
+
+#certificates .public-certificate-card {
+    border-radius: 17px;
+    background: var(--surface-2);
+    transition: border-color .25s, transform .25s;
+}
+
+#certificates .public-certificate-card:hover {
+    border-color: rgba(245, 196, 81, .4);
+}
+
+#certificates .public-certificate-image-wrap {
+    height: 220px;
+}
+
+#certificates .public-certificate-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+}
+
+#certificates .public-certificate-info h3 {
+    font-size: 1.08rem;
+    line-height: 1.5;
+}
+
+#certificates .public-certificate-description {
+    line-height: 1.7;
+}
+
+#certificates .public-certificate-actions {
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+#certificates .public-certificate-grid::-webkit-scrollbar {
+    height: 7px;
+}
+
+#certificates .public-certificate-grid::-webkit-scrollbar-track {
+    background: var(--surface-3);
+    border-radius: 10px;
+}
+
+#certificates .public-certificate-grid::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+
+/* ==========================================
+   7. ACHIEVEMENTS CARDS
+========================================== */
+
+#achievements .highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+#achievements .highlight-card {
+    padding: 22px;
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            145deg,
+            var(--surface-2),
+            rgba(23, 27, 37, .65)
+        );
+}
+
+#achievements .highlight-card:hover {
+    border-color: rgba(245, 196, 81, .35);
+}
+
+#achievements .highlight-card h3 {
+    font-size: .95rem;
+    line-height: 1.5;
+}
+
+#achievements .highlight-card p {
+    font-size: .8rem;
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   8. CONTACT SECTION
+========================================== */
+
+#contact .contact-panel {
+    border-radius: 17px;
+    padding: 26px;
+}
+
+#contact .contact-panel h3 {
+    font-size: 1.15rem;
+}
+
+#contact .contact-panel p {
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   9. TABLET RESPONSIVENESS
+========================================== */
+
+@media (max-width: 900px) {
+
+    .content-section {
+        padding: 23px;
+        margin-top: 20px;
+    }
+
+    #projects .public-project-grid > .public-project-card,
+    #certificates .public-certificate-grid > .public-certificate-card {
+        flex-basis: 78%;
+    }
+
+    #skills .skills-groups,
+    #achievements .highlights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ==========================================
+   10. MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 680px) {
+
+    .content-section {
+        padding: 19px;
+        margin-top: 16px;
+        border-radius: 16px;
+    }
+
+    .section-heading {
+        margin-bottom: 19px;
+    }
+
+    .section-heading h2 {
+        font-size: 1.55rem;
+    }
+
+    #about .about-panel {
+        padding: 18px;
+    }
+
+    #about .about-panel p {
+        font-size: .82rem;
+    }
+
+    #skills .skills-groups,
+    #achievements .highlights-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #skills .skill-group {
+        padding: 17px;
+    }
+
+    #education .education-card {
+        padding: 17px;
+    }
+
+    #projects .public-project-grid,
+    #certificates .public-certificate-grid {
+        gap: 13px;
+        padding-bottom: 15px;
+    }
+
+    #projects .public-project-grid > .public-project-card,
+    #certificates .public-certificate-grid > .public-certificate-card {
+        flex-basis: 88%;
+        max-width: 360px;
+    }
+
+    #projects .public-project-image-wrap {
+        height: 190px;
+    }
+
+    #certificates .public-certificate-image-wrap {
+        height: 190px;
+    }
+
+    #projects .public-project-info,
+    #certificates .public-certificate-info {
+        padding: 16px;
+    }
+
+    #contact .contact-panel {
+        padding: 19px;
+    }
+
+}
+
+
+/* ==========================================
+   11. SMALL MOBILE SCREENS
+========================================== */
+
+@media (max-width: 420px) {
+
+    .content-section {
+        padding: 16px;
+        margin-top: 14px;
+    }
+
+    .section-heading h2 {
+        font-size: 1.42rem;
+    }
+
+    #projects .public-project-grid > .public-project-card,
+    #certificates .public-certificate-grid > .public-certificate-card {
+        flex-basis: 92%;
+    }
+
+}
+
+
+/* ==========================================
+   12. EXTRA SMALL PHONES
+========================================== */
+
+@media (max-width: 360px) {
+
+    .content-section {
+        padding: 14px;
+    }
+
+    #projects .public-project-image-wrap,
+    #certificates .public-certificate-image-wrap {
+        height: 175px;
+    }
+
 }
